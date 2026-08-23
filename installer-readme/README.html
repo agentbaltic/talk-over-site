@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Talk Over - Read Me</title>
+    <style>
+      :root { --ink:#1a1a1a; --amber:#e3a945; --mint:#45e3a9; --violet:#7a2eac; --cream:#f7f5f0; --slate:#4a5568; }
+      * { box-sizing:border-box; }
+      @page { size:letter; margin:.34in; }
+      body { margin:0; background:var(--cream); color:var(--ink); font-family:Inter,Arial,sans-serif; }
+      main { width:8.5in; min-height:11in; margin:0 auto; padding:.36in; background:#fff; }
+      header { display:flex; justify-content:space-between; align-items:flex-start; padding-bottom:.22in; border-bottom:4px solid var(--amber); }
+      h1 { margin:0; font-size:38px; letter-spacing:-.04em; line-height:.95; }
+      .tag { margin:5px 0 0; color:var(--slate); font-size:12px; }
+      .label { margin:0 0 8px; color:#a27620; font-size:10px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
+      .intro { max-width:6.2in; margin:20px 0 18px; font-size:17px; font-weight:600; line-height:1.42; }
+      .grid { display:grid; grid-template-columns:1fr 1.15fr; gap:16px; }
+      .card { padding:16px; border-radius:5px; }
+      .needs { background:var(--mint); }
+      .steps { background:var(--ink); color:#fff; }
+      .steps .label { color:var(--amber); }
+      .steps ol { margin:7px 0 0; padding-left:20px; font-size:13px; line-height:1.47; }
+      h2 { margin:0 0 8px; font-size:20px; letter-spacing:-.025em; }
+      dl { margin:0; font-size:11.5px; line-height:1.35; }
+      dt { margin-top:8px; font-weight:800; }
+      dd { margin:1px 0 0; color:#303030; }
+      .first-run { margin-top:16px; padding:16px; background:var(--violet); color:#fff; border-radius:5px; }
+      .first-run .label { color:#fff; }
+      .first-run p { margin:0; font-size:13px; line-height:1.47; }
+      .use { margin-top:16px; padding:16px; border:1px solid #d9d9d9; border-radius:5px; }
+      .use-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:13px; }
+      .use h3 { margin:0 0 5px; font-size:14px; }
+      .use p { margin:0; color:var(--slate); font-size:11.5px; line-height:1.42; }
+      footer { display:flex; justify-content:space-between; align-items:center; margin-top:16px; padding-top:13px; border-top:1px solid #dedede; color:var(--slate); font-size:10px; }
+      footer strong { color:var(--ink); }
+      @media print { body { background:#fff; } main { margin:0; } }
+      @media screen and (max-width:760px) { main { width:100%; min-height:auto; padding:24px; } .grid,.use-grid { grid-template-columns:1fr; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header><div><h1>Talk Over</h1><p class="tag">Install &amp; getting started</p></div><p class="label">Voice-following teleprompter for Mac</p></header>
+      <p class="intro">Talk Over keeps your script with you while you read. Use a steady timed crawl, work it by hand, or let your voice set the pace. Your scripts and audio stay on your Mac.</p>
+      <div class="grid">
+        <section class="card needs"><p class="label">What you need</p><h2>Before you install</h2><dl><dt>Mac</dt><dd>Apple Silicon only: M1, M2, M3, M4 or later.</dd><dt>macOS</dt><dd>macOS 11 Big Sur or later. macOS 13 or later recommended.</dd><dt>Space</dt><dd>About 250 MB free.</dd><dt>Microphone</dt><dd>Any built-in or external mic for voice-following.</dd><dt>Internet</dt><dd>Needed only to download. The app works offline.</dd></dl></section>
+        <section class="card steps"><p class="label">Install</p><h2>Four steps</h2><ol><li>Download the free trial or purchase Talk Over.</li><li>Double-click the downloaded file.</li><li><strong>Drag Talk Over onto Applications.</strong></li><li>Open Applications and double-click Talk Over.</li></ol></section>
+      </div>
+      <section class="first-run"><p class="label">First run</p><h2>Allow microphone access when macOS asks.</h2><p>Talk Over appears in your Dock and opens in your browser. That is normal: it uses the browser as its window but runs on your Mac. Voice-following needs microphone permission. Camera Take separately asks for camera permission. If you clicked Don't Allow, open System Settings → Privacy &amp; Security → Microphone, enable your browser, and reload Talk Over.</p></section>
+      <section class="use"><p class="label">Your first take</p><div class="use-grid"><div><h3>1. Add a script</h3><p>Paste text and choose Prepare script, or import a .txt, .md, .markdown, or .rtf file.</p></div><div><h3>2. Choose your mode</h3><p>Use Voice for follow-along, Start for a timed crawl, or Manual for keyboard control.</p></div><div><h3>3. Present</h3><p>If you lose your place, click the next word you will say. Talk Over restarts from there.</p></div></div></section>
+      <footer><span><strong>Talk Over 1.0.16</strong> · Apple Silicon · macOS 11 or later</span><span>Support: julep@agentbaltic.com</span></footer>
+    </main>
+  </body>
+</html>
