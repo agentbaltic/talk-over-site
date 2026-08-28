@@ -1,13 +1,145 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Features - Talk Over</title><link rel="stylesheet" href="styles.css"></head><body class="site editorial inner-page">
-<header class="bar"><a class="brand" href="index.html">Talk Over</a><nav class="nav"><a class="nav-link" href="features.html">Features</a><a class="nav-link" href="installation.html">Installation &amp; Use</a><a class="nav-link" href="about.html">About Us</a><a class="nav-link" href="contact.html">Contact</a><a class="help-link" href="contact.html">Help</a><a class="button nav-trial" href="https://resources.agentbaltic.com/b/UlS6B">Free Trial</a><a class="button nav-purchase" href="https://resources.agentbaltic.com/b/uxIl4">Purchase</a></nav></header>
-<main><section class="page-hero"><div class="content-column"><p class="eyebrow">Features</p><h1>A prompter that works the way you do.</h1><p>Talk Over is built for recording, presenting, and keeping your place without handing your script or your voice to a cloud service.</p></div></section>
-<section class="feature-list content-column">
-<article class="feature-story"><div><h2>The script follows your voice</h2><p>Talk Over listens while you talk and moves the script to keep pace with you. There is no timer to guess at and no speed dial to keep nudging: start speaking and the words come to you, pause to think and the prompt waits, go off-script for a moment and it picks you back up when you return to the page. Speech recognition runs entirely on your own Mac - the audio never leaves the machine, there is no account, and it works with the Wi-Fi off.</p></div><img src="assets/screenshots/04-presenter-voice-following.png" alt="Talk Over following a speaker's voice"></article>
-<article class="feature-story reverse"><div><h2>Floating Prompt</h2><p>Talk Over floats your script on top of whatever you're already doing. It's a transparent, always-on-top window you can drag anywhere and size to fit - park it right under your webcam so your eyes stay where they belong, and leave Zoom, Meet, Teams, Keynote or your browser fully usable underneath. A shade slider sets how see-through the window is, from a barely-there tint to a near-solid backdrop, so your words stay readable over a bright slide or a busy call. Share the meeting app's window rather than your whole screen and the prompt stays yours alone.</p></div><img src="assets/screenshots/09-floating-prompt-conferencing.png" alt="Talk Over Floating Prompt over a video conference"></article>
-<article class="feature-story"><div><h2>Record yourself, while you read</h2><p>Camera Take turns Talk Over into a self-recording setup: your camera picture sits behind the words, so you can read a script while still looking into the lens. It is made for tutorial videos, screencasts with a talking-head introduction, product demos, training materials, company documentation, and any update you need to deliver clearly without losing your place. Choose your camera and recording microphone, then use the three-second countdown to get ready. Talk Over writes the take straight to your Mac as you record. The script, controls, and settings are never burned into the video, so the final file is simply you on camera. You can also flip the prompt horizontally, vertically, or both for a beam-splitter teleprompter rig.</p></div><img src="assets/screenshots/10-camera-take.png" alt="Talk Over Camera Take settings"></article>
-<article class="feature-story reverse"><div><h2>Read it your way</h2><p>Three ways to move through a script, and you can switch between them mid-take: let your voice drive it, run a steady timed crawl, or work it by hand. The reading keys are printed along the bottom of the presenter so there's nothing to memorise - space to start and pause, arrows to nudge a line, Page Up and Page Down to move most of a screen, plus and minus to change the crawl speed. Text size, column width, line height, paragraph spacing and the height of the read line are all yours to set.</p></div><img src="assets/screenshots/05-display-settings.png" alt="Talk Over display settings"></article>
-<article class="feature-story reverse"><div><h2>Bring your script in, keep it exactly as written</h2><p>Paste your text or drop in a .txt, .md, .markdown or .rtf file. Talk Over keeps what you gave it word for word, and prepares a separate reading copy that quietly drops the parts you were never meant to say out loud - review notes, headings and bracketed stage directions. You read clean prose; your original is untouched underneath.</p></div><img src="assets/screenshots/03-editor.png" alt="Talk Over script editor"></article>
-<article class="feature-story"><div><h2>Nothing you write is ever thrown away</h2><p>Every save is a new numbered version, and Talk Over never removes one. Earlier drafts stay listed beside the script: open one to read it without disturbing anything, or bring it back - which adds it as the newest version rather than deleting the work that came after it. There is no way to lose a line to a save.</p></div><img src="assets/screenshots/03-editor.png" alt="Talk Over keeps numbered script versions"></article>
-<article class="feature-story reverse"><div><h2>It remembers where you were</h2><p>Leave the presenter to fix a typo, come back, and Talk Over puts you on the same line. It holds your place per script, and it holds the words either side of that line too - so even an edit that shifts the text around still finds the spot you were reading.</p></div><img src="assets/screenshots/04-presenter-voice-following.png" alt="Talk Over presenter remembers your place"></article>
-<article class="feature-story"><div><h2>Yours, on your own Mac</h2><p>Talk Over is a single Mac app with a small menu-bar icon and no cloud behind it. Your scripts, your voice and your recordings stay in your own folder on your own machine, and everything works with no connection at all. Replace the app and your library is exactly where you left it.</p></div><img src="assets/screenshots/02-script-library.png" alt="Talk Over script library"></article>
-</section></main><footer class="site-footer"><div class="content-column"><strong>Talk Over</strong><span><a href="features.html">Features</a><a href="installation.html">Installation &amp; Use</a><a href="about.html">About Us</a><a href="contact.html">Contact Us</a></span></div></footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Features — TalkOver</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; font-family:Inter,Arial,sans-serif; -webkit-font-smoothing:antialiased; text-wrap:pretty; }
+  a { color:#2a9e76; }
+  a:hover { color:#1f7a5a; }
+</style>
+</head>
+<body>
+<header style="position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid #e7e3d9;min-height:72px;padding:0 clamp(20px,5vw,64px);display:flex;align-items:center;justify-content:space-between;">
+  <a href="index.html" style="font-weight:900;font-size:21px;letter-spacing:-.04em;color:#1a1a1a;text-decoration:none;">TalkOver</a>
+  <nav style="display:flex;gap:22px;align-items:center;font-size:14px;font-weight:600;">
+    <a href="features.html" style="color:#1a1a1a;text-decoration:none;">Features</a>
+    <a href="how-it-works.html" style="color:#1a1a1a;text-decoration:none;">How it works</a>
+    <a href="pricing.html" style="color:#1a1a1a;text-decoration:none;">Pricing</a>
+    <a href="faq.html" style="color:#1a1a1a;text-decoration:none;">FAQ</a>
+    <a href="about.html" style="color:#1a1a1a;text-decoration:none;">About</a>
+    <a href="contact.html" style="color:#1a1a1a;text-decoration:none;">Contact</a>
+    <a href="pricing.html" style="margin-left:6px;display:inline-flex;align-items:center;height:40px;padding:0 18px;background:#e3a945;color:#1a1a1a;border-radius:100px;font-weight:800;text-decoration:none;font-size:13.5px;">Free Trial/Purchase</a>
+  </nav>
+</header>
+
+<main>
+  <section style="padding:clamp(64px,9vw,120px) clamp(20px,6vw,64px) clamp(40px,6vw,64px);background:#f7f5f0;">
+    <div style="max-width:1120px;margin:auto;">
+      <p style="color:#96742a;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin:0;">Features</p>
+      <h1 style="max-width:820px;margin:14px 0 18px;font-size:clamp(38px,5.4vw,72px);font-weight:900;letter-spacing:-.03em;line-height:1;color:#1a1a1a;">TalkOver. The teleprompter you've always wanted.</h1>
+      <p style="max-width:640px;color:#4a5568;font-size:clamp(17px,1.8vw,21px);line-height:1.55;margin:0;">TalkOver is a teleprompter tool that follows along as you speak. And it's full of awesome features. No subscription, no data in the cloud.</p>
+    </div>
+  </section>
+
+  <section style="padding:clamp(48px,7vw,100px) clamp(20px,6vw,64px);">
+    <div style="max-width:1120px;margin:auto;display:grid;gap:0;">
+
+      <h1 style="margin:0 0 8px;font-size:clamp(30px,3.8vw,50px);font-weight:900;letter-spacing:-.02em;line-height:1.05;color:#1a1a1a;">Everything TalkOver does.</h1>
+
+      <article style="display:grid;grid-template-columns:minmax(0,.85fr) minmax(320px,1.15fr);gap:clamp(30px,6vw,90px);align-items:center;padding:clamp(40px,6vw,80px) 0;">
+        <div>
+          <h2 style="margin:0 0 16px;font-size:clamp(28px,3.4vw,46px);font-weight:900;letter-spacing:-.02em;line-height:1.05;color:#1a1a1a;">The script follows your voice.</h2>
+          <p style="margin:0;color:#4a5568;font-size:16.5px;line-height:1.7;">No timer to guess at. No speed dial to keep nudging. Start speaking and the words come to you. Pause, and it waits. Wander off-script and it picks you back up when you come back to the page. Speech recognition runs entirely on your Mac — it works with the Wi-Fi off, and no account is involved.</p>
+        </div>
+        <img src="assets/screenshots/03-presenter.png" alt="TalkOver following a speaker's voice" style="width:100%;border:1px solid #e2ded4;border-radius:12px;box-shadow:0 18px 42px rgba(26,26,26,.1);display:block;">
+      </article>
+
+      <article style="display:grid;grid-template-columns:minmax(320px,1.15fr) minmax(0,.85fr);gap:clamp(30px,6vw,90px);align-items:center;padding:clamp(40px,6vw,80px) 0;border-top:1px solid #e5e5e5;">
+        <img src="assets/screenshots/04-display-settings.png" alt="TalkOver display settings" style="width:100%;border:1px solid #e2ded4;border-radius:12px;box-shadow:0 18px 42px rgba(26,26,26,.1);display:block;">
+        <div>
+          <h2 style="margin:0 0 16px;font-size:clamp(28px,3.4vw,46px);font-weight:900;letter-spacing:-.02em;line-height:1.05;color:#1a1a1a;">Read it your way.</h2>
+          <p style="margin:0;color:#4a5568;font-size:16.5px;line-height:1.7;">Three ways to move through a script, switchable mid-take: let your voice drive it, run a steady timed crawl, or work it by hand with the arrow keys. Text size, column width, line height, paragraph spacing and read-line height are all yours to set.</p>
+        </div>
+      </article>
+
+      <article style="display:grid;grid-template-columns:minmax(0,.85fr) minmax(320px,1.15fr);gap:clamp(30px,6vw,90px);align-items:center;padding:clamp(40px,6vw,80px) 0;border-top:1px solid #e5e5e5;">
+        <div>
+          <h2 style="margin:0 0 16px;font-size:clamp(28px,3.4vw,46px);font-weight:900;letter-spacing:-.02em;line-height:1.05;color:#1a1a1a;">Float Over.</h2>
+          <p style="margin:0;color:#4a5568;font-size:16.5px;line-height:1.7;">A transparent, always-on-top window you drag anywhere and size to fit — park it right under your webcam so your eyes stay where they belong, and leave Zoom, Meet, Teams, Keynote or your browser fully usable underneath. Screen Opacity sets how see-through it is, from a barely-there tint to solid, and a 100% button puts it back in one press. While it is on, your clicks pass through to whatever is behind, so you can keep working with the script still in view — the bar, the settings and the window's own title bar stay clickable throughout. The script is kept off a shared screen by default, so the people on the call see your slides and not your words.</p>
+        </div>
+        <img src="assets/screenshots/07-float-over.png" alt="TalkOver's Float Over settings" style="width:100%;border:1px solid #e2ded4;border-radius:12px;box-shadow:0 18px 42px rgba(26,26,26,.1);display:block;">
+      </article>
+
+      <article style="padding:clamp(40px,6vw,80px) 0;border-top:1px solid #e5e5e5;">
+        <h2 style="margin:0 0 16px;font-size:clamp(28px,3.4vw,46px);font-weight:900;letter-spacing:-.02em;line-height:1.05;color:#1a1a1a;">Move the script without touching anything.</h2>
+        <p style="margin:0 0 16px;max-width:760px;color:#4a5568;font-size:16.5px;line-height:1.7;">Voice-following keeps pace with you, but sometimes you need to jump. Say <strong style="color:#1a1a1a;">TalkOver page up</strong> or <strong style="color:#1a1a1a;">TalkOver paragraph down</strong>, <strong style="color:#1a1a1a;">TalkOver back</strong> or <strong style="color:#1a1a1a;">TalkOver next</strong>, <strong style="color:#1a1a1a;">TalkOver restart</strong> or <strong style="color:#1a1a1a;">TalkOver end</strong> — and <strong style="color:#1a1a1a;">TalkOver pause</strong> and <strong style="color:#1a1a1a;">TalkOver resume</strong> to stop and start the following itself.</p>
+        <p style="margin:0;max-width:760px;color:#4a5568;font-size:16.5px;line-height:1.7;">The name has to come first, which is what keeps an ordinary sentence from moving the script mid-take. It all runs on your Mac, like the rest of the listening.</p>
+      </article>
+
+      <article style="display:grid;grid-template-columns:minmax(320px,1.15fr) minmax(0,.85fr);gap:clamp(30px,6vw,90px);align-items:center;padding:clamp(40px,6vw,80px) 0;border-top:1px solid #e5e5e5;">
+        <img src="assets/screenshots/08-recording-settings.png" alt="TalkOver Recording Settings" style="width:100%;border:1px solid #e2ded4;border-radius:12px;box-shadow:0 18px 42px rgba(26,26,26,.1);display:block;">
+        <div>
+          <h2 style="margin:0 0 16px;font-size:clamp(28px,3.4vw,46px);font-weight:900;letter-spacing:-.02em;line-height:1.05;color:#1a1a1a;">Record yourself, while you read.</h2>
+          <p style="margin:0;color:#4a5568;font-size:16.5px;line-height:1.7;">Recording turns TalkOver into a self-recording setup: your camera and microphone capture you while you read, so you are looking into the lens rather than down at your notes. Made for tutorials, screencasts, product demos and training materials. Choose your camera, microphone and resolution, and a three-second countdown gets you ready. Takes save straight to your Downloads folder as you record — the script, the controls and the settings are never burned into the video, so the file is simply you on camera. While it runs, a small red indicator shows the elapsed time; drag it anywhere, or shrink it to a dot in the corner.</p>
+        </div>
+      </article>
+
+      <article style="display:grid;grid-template-columns:minmax(0,.85fr) minmax(320px,1.15fr);gap:clamp(30px,6vw,90px);align-items:center;padding:clamp(40px,6vw,80px) 0;border-top:1px solid #e5e5e5;">
+        <div>
+          <h2 style="margin:0 0 16px;font-size:clamp(28px,3.4vw,46px);font-weight:900;letter-spacing:-.02em;line-height:1.05;color:#1a1a1a;">Bring your script in, keep it exactly as written.</h2>
+          <p style="margin:0;color:#4a5568;font-size:16.5px;line-height:1.7;">Paste your text or drop in a .txt, .md, .markdown or .rtf file, up to 2 MB. TalkOver keeps what you gave it word for word, and prepares a separate reading copy that quietly drops the parts you were never meant to say out loud — notes to self, headings, bracketed stage directions. You read clean prose; your original stays untouched underneath.</p>
+        </div>
+        <img src="assets/screenshots/02-editor.png" alt="TalkOver script editor" style="width:100%;border:1px solid #e2ded4;border-radius:12px;box-shadow:0 18px 42px rgba(26,26,26,.1);display:block;">
+      </article>
+
+      <article style="display:grid;grid-template-columns:minmax(320px,1.15fr) minmax(0,.85fr);gap:clamp(30px,6vw,90px);align-items:center;padding:clamp(40px,6vw,80px) 0;border-top:1px solid #e5e5e5;">
+        <img src="assets/screenshots/05-mirrored-for-teleprompter.png" alt="TalkOver mirrored for teleprompter glass" style="width:100%;border:1px solid #e2ded4;border-radius:12px;box-shadow:0 18px 42px rgba(26,26,26,.1);display:block;">
+        <div>
+          <h2 style="margin:0 0 16px;font-size:clamp(28px,3.4vw,46px);font-weight:900;letter-spacing:-.02em;line-height:1.05;color:#1a1a1a;">Every save keeps the last one.</h2>
+          <p style="margin:0;color:#4a5568;font-size:16.5px;line-height:1.7;">Every save is a new numbered version, and none is ever removed. Earlier drafts stay listed beside the script: open one to read it without disturbing anything, or bring it back — which adds it as the newest version rather than deleting the work that came after it.</p>
+        </div>
+      </article>
+
+      <article style="display:grid;grid-template-columns:minmax(0,.85fr) minmax(320px,1.15fr);gap:clamp(30px,6vw,90px);align-items:center;padding:clamp(40px,6vw,80px) 0;border-top:1px solid #e5e5e5;">
+        <div>
+          <h2 style="margin:0 0 16px;font-size:clamp(28px,3.4vw,46px);font-weight:900;letter-spacing:-.02em;line-height:1.05;color:#1a1a1a;">It remembers where you were.</h2>
+          <p style="margin:0;color:#4a5568;font-size:16.5px;line-height:1.7;">Leave the presenter to fix a typo, come back, and TalkOver puts you on the same line. It holds your place per script, using the words either side of that line too — so even an edit that shifts the text around still finds the spot you were reading.</p>
+        </div>
+        <img src="assets/screenshots/01-script-library.png" alt="TalkOver script library" style="width:100%;border:1px solid #e2ded4;border-radius:12px;box-shadow:0 18px 42px rgba(26,26,26,.1);display:block;">
+      </article>
+
+      <article style="display:grid;grid-template-columns:minmax(320px,1.15fr) minmax(0,.85fr);gap:clamp(30px,6vw,90px);align-items:center;padding:clamp(40px,6vw,80px) 0;border-top:1px solid #e5e5e5;">
+        <img src="assets/screenshots/06-help-and-shortcuts.png" alt="TalkOver keyboard shortcuts" style="width:100%;border:1px solid #e2ded4;border-radius:12px;box-shadow:0 18px 42px rgba(26,26,26,.1);display:block;">
+        <div>
+          <h2 style="margin:0 0 16px;font-size:clamp(28px,3.4vw,46px);font-weight:900;letter-spacing:-.02em;line-height:1.05;color:#1a1a1a;">Yours, on your own Mac.</h2>
+          <p style="margin:0;color:#4a5568;font-size:16.5px;line-height:1.7;">TalkOver is a single Mac app with a small menu-bar icon and no cloud behind it. Your scripts, your voice and your recordings stay in your own folder on your own machine, and everything works with no connection at all. Replace the app and your library is exactly where you left it.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section style="padding:clamp(50px,7vw,90px) clamp(20px,6vw,64px);background:#f7f5f0;">
+    <div style="max-width:1120px;margin:auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;">
+      <h2 style="margin:0;font-size:clamp(24px,3vw,36px);font-weight:900;letter-spacing:-.03em;color:#1a1a1a;max-width:560px;">Ready to see it follow your own script?</h2>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="https://resources.agentbaltic.com/b/UlS6B" style="display:inline-flex;align-items:center;height:52px;padding:0 26px;background:#1a1a1a;color:#fff;border-radius:100px;font-weight:800;font-size:15.5px;text-decoration:none;">Download free trial</a>
+        <a href="pricing.html" style="display:inline-flex;align-items:center;height:52px;padding:0 26px;background:transparent;border:1.5px solid #1a1a1a;color:#1a1a1a;border-radius:100px;font-weight:800;font-size:15.5px;text-decoration:none;">See pricing</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer style="padding:36px clamp(20px,6vw,64px);background:#1a1a1a;color:#fff;">
+  <div style="max-width:1240px;margin:auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:center;">
+    <div>
+      <strong style="font-size:16px;">TalkOver</strong>
+      <div style="margin-top:6px;color:#a8a8a8;font-size:13px;"><a href="mailto:julep@agentbaltic.com" style="color:#a8a8a8;text-decoration:none;">julep@agentbaltic.com</a></div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:18px;color:#d7d7d7;font-size:14px;">
+      <a href="features.html" style="color:#d7d7d7;text-decoration:none;">Features</a>
+      <a href="how-it-works.html" style="color:#d7d7d7;text-decoration:none;">How it works</a>
+      <a href="pricing.html" style="color:#d7d7d7;text-decoration:none;">Pricing</a>
+      <a href="faq.html" style="color:#d7d7d7;text-decoration:none;">FAQ</a>
+      <a href="about.html" style="color:#d7d7d7;text-decoration:none;">About</a>
+      <a href="contact.html" style="color:#d7d7d7;text-decoration:none;">Contact</a>
+      <a href="legal.html" style="color:#d7d7d7;text-decoration:none;">Legal</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

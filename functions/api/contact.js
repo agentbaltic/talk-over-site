@@ -18,7 +18,7 @@ export async function onRequestPost({ request, env }) {
       from: env.CONTACT_FROM,
       to: ['julep@agentbaltic.com'],
       reply_to: email.trim(),
-      subject: `[Talk Over] ${topic.trim()} from ${name.trim()}`,
+      subject: `[TalkOver] ${topic.trim()} from ${name.trim()}`,
       text: `Name: ${name.trim()}\nEmail: ${email.trim()}\nTopic: ${topic.trim()}\n\n${message.trim()}`
     })
   });
