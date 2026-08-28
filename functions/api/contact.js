@@ -5,13 +5,7 @@ export async function onRequestPost({ request, env }) {
   }
 
   if (!env.RESEND_API_KEY || !env.CONTACT_FROM) {
-    // Temporary: report which binding is missing so the cause is visible.
-    // Presence only — no value is ever returned.
-    return Response.json({
-      error: 'Contact form is not configured.',
-      has: { RESEND_API_KEY: Boolean(env.RESEND_API_KEY), CONTACT_FROM: Boolean(env.CONTACT_FROM) },
-      keys: Object.keys(env)
-    }, { status: 503 });
+    return Response.json({ error: 'Contact form is not configured.' }, { status: 503 });
   }
 
   const result = await fetch('https://api.resend.com/emails', {
