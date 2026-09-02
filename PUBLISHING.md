@@ -15,6 +15,13 @@ licence key, so the download can be public.
 
 ## One-time setup in the Cloudflare dashboard (Pages project → Settings)
 
+**Done on 2 September 2026:** R2 subscribed (free tier), KV namespace
+`talkover-releases` bound as `RELEASES`, R2 bucket `talkover-releases` bound as
+`RELEASES_FILES`, secret `PUBLISH_TOKEN` set, site redeployed. A wrong password on
+`/api/publish` answers 401, which proves all three are live. Kept below for the
+day this has to be rebuilt.
+
+
 1. **KV namespace**, bound to the project as `RELEASES`. Holds the published
    version. Until one is published, `talkover/latest.json` in this repo answers.
 2. **R2 bucket**, bound as `RELEASES_FILES`. Holds the disk images. Without this
