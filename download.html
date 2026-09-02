@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Download the newest version — TalkOver</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; font-family:Inter,Arial,sans-serif; -webkit-font-smoothing:antialiased; text-wrap:pretty; }
+  a { color:#2a9e76; } a:hover { color:#1f7a5a; }
+</style>
+</head>
+<body><header style="position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid #e7e3d9;min-height:72px;padding:0 clamp(20px,5vw,64px);display:flex;align-items:center;justify-content:space-between;">
+  <a href="/" style="font-weight:900;font-size:21px;letter-spacing:-.04em;color:#1a1a1a;text-decoration:none;">TalkOver</a>
+  <nav style="display:flex;gap:22px;align-items:center;font-size:14px;font-weight:600;">
+    <a href="/features" style="color:#1a1a1a;text-decoration:none;">Features</a>
+    <a href="/how-it-works" style="color:#1a1a1a;text-decoration:none;">How it works</a>
+    <a href="/pricing" style="color:#1a1a1a;text-decoration:none;">Pricing</a>
+    <a href="/faq" style="color:#1a1a1a;text-decoration:none;">FAQ</a>
+    <a href="/about" style="color:#1a1a1a;text-decoration:none;">About</a>
+    <a href="/contact" style="color:#1a1a1a;text-decoration:none;">Contact</a>
+    <a href="/pricing" style="margin-left:6px;display:inline-flex;align-items:center;height:40px;padding:0 18px;background:#e3a945;color:#1a1a1a;border-radius:100px;font-weight:800;text-decoration:none;font-size:13.5px;">Free Trial/Purchase</a>
+  </nav>
+</header><main style="max-width:860px;margin:0 auto;padding:56px clamp(20px,6vw,64px);">
+<p style="margin:0 0 8px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7a6f5a;">Download</p>
+<h1 style="margin:0 0 12px;font-size:clamp(32px,5vw,48px);line-height:1.1;letter-spacing:-.02em;">The newest TalkOver, free for licence holders.</h1>
+<p style="margin:0 0 14px;color:#4a5568;line-height:1.7;font-size:17px;">Every update is a free ($0.00) download. Install it over the copy you have; your licence and your scripts stay exactly where they are.</p>
+<h2 style="margin:28px 0 10px;font-size:22px;">Newest version: <span id="latest-version">checking…</span></h2>
+<p id="latest-notes" style="margin:0 0 14px;color:#4a5568;line-height:1.7;font-size:17px;"></p>
+<p><a id="latest-link" style="display:inline-block;padding:14px 22px;border-radius:12px;background:#1a1a1a;color:#fff;font-weight:700;text-decoration:none;" href="https://resources.agentbaltic.com/b/uxIl4">Download</a></p>
+<p style="margin:0 0 14px;color:#4a5568;line-height:1.7;font-size:17px;">No licence yet? <a href="https://resources.agentbaltic.com/b/uxIl4">Buy TalkOver</a>, or <a href="https://resources.agentbaltic.com/b/UlS6B">try it free for 30 days</a>. A downloaded copy of the full app will not run until it has been activated with a licence key.</p>
+<h2 style="margin:28px 0 10px;font-size:22px;">Let the app tell you</h2>
+<p style="margin:0 0 14px;color:#4a5568;line-height:1.7;font-size:17px;">TalkOver can check for new versions itself, if you switch that on: when it opens and about once a day, it reads one small file on this site that names the newest version. Nothing about you or your scripts is sent. It is off until you turn it on, under How To → Privacy inside the app.</p>
+<script>
+fetch('/api/latest').then(r => r.ok ? r.json() : null).then(latest => {
+  if (!latest) { document.getElementById('latest-version').textContent = 'unavailable right now'; return; }
+  document.getElementById('latest-version').textContent = latest.version;
+  if (latest.notes) document.getElementById('latest-notes').textContent = latest.notes;
+  if (latest.url && !latest.url.endsWith('/download')) document.getElementById('latest-link').href = latest.url;
+}).catch(() => { document.getElementById('latest-version').textContent = 'unavailable right now'; });
+</script></main><footer style="padding:36px clamp(20px,6vw,64px);background:#1a1a1a;color:#fff;">
+  <div style="max-width:1240px;margin:auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:center;">
+    <div><strong style="font-size:16px;">TalkOver</strong><div style="margin-top:6px;color:#a8a8a8;font-size:13px;"><a href="mailto:julep@agentbaltic.com" style="color:#a8a8a8;text-decoration:none;">julep@agentbaltic.com</a></div></div>
+    <div style="display:flex;flex-wrap:wrap;gap:18px;color:#d7d7d7;font-size:14px;">
+      <a href="/features" style="color:#d7d7d7;text-decoration:none;">Features</a>
+      <a href="/how-it-works" style="color:#d7d7d7;text-decoration:none;">How it works</a>
+      <a href="/pricing" style="color:#d7d7d7;text-decoration:none;">Pricing</a>
+      <a href="/faq" style="color:#d7d7d7;text-decoration:none;">FAQ</a>
+      <a href="/about" style="color:#d7d7d7;text-decoration:none;">About</a>
+      <a href="/contact" style="color:#d7d7d7;text-decoration:none;">Contact</a>
+      <a href="/legal" style="color:#d7d7d7;text-decoration:none;">Legal</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
