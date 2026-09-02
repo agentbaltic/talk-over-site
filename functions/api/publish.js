@@ -6,6 +6,18 @@
 const VERSION = /^[0-9]+(\.[0-9]+)*$/;
 const TYPES = { dmg: 'application/x-apple-diskimage', zip: 'application/zip' };
 
+// A zip starts with "PK"; a disk image ends with a 512-byte "koly" trailer.
+// Suffix alone let arbitrary bytes be published under the build's name.
+async function looksLikeABuild(file, extension) {
+  if (file.size < 512) return false;
+  if (extension === 'zip') {
+    const head = new Uint8Array(await file.slice(0, 2).arrayBuffer());
+    return head[0] === 0x50 && head[1] === 0x4b;
+  }
+  const trailer = new Uint8Array(await file.slice(file.size - 512, file.size - 508).arrayBuffer());
+  return trailer[0] === 0x6b && trailer[1] === 0x6f && trailer[2] === 0x6c && trailer[3] === 0x79;
+}
+
 export async function onRequestPost({ request, env }) {
   if (!env.PUBLISH_TOKEN) return Response.json({ error: 'Publishing is not configured: set PUBLISH_TOKEN.' }, { status: 503 });
   if (!env.RELEASES) return Response.json({ error: 'Publishing is not configured: bind the RELEASES store.' }, { status: 503 });
@@ -24,6 +36,9 @@ export async function onRequestPost({ request, env }) {
     const match = /\.(dmg|zip)$/i.exec(String(file.name || ''));
     if (!match) return Response.json({ error: 'The build must be a .dmg or a .zip.' }, { status: 400 });
     const extension = match[1].toLowerCase();
+    if (!(await looksLikeABuild(file, extension))) {
+      return Response.json({ error: `That file is not a ${extension === 'zip' ? 'zip' : 'disk image'}.` }, { status: 400 });
+    }
     const name = `TalkOver-${version}.${extension}`;
     await env.RELEASES_FILES.put(name, file.stream(), {
       httpMetadata: { contentType: TYPES[extension] },
