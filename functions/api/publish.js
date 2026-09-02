@@ -19,7 +19,11 @@ export async function onRequestPost({ request, env }) {
   let url = String(form.get('url') || '').trim();
   if (file && typeof file === 'object' && file.size > 0) {
     if (!env.RELEASES_FILES) return Response.json({ error: 'Uploads are not configured: bind the RELEASES_FILES bucket, or give a download address.' }, { status: 503 });
-    const extension = /\.zip$/i.test(String(file.name || '')) ? 'zip' : 'dmg';
+    // The browser's accept list is a hint, not a check: a wrong click on a
+    // notes file must not become "the new TalkOver" for every customer.
+    const match = /\.(dmg|zip)$/i.exec(String(file.name || ''));
+    if (!match) return Response.json({ error: 'The build must be a .dmg or a .zip.' }, { status: 400 });
+    const extension = match[1].toLowerCase();
     const name = `TalkOver-${version}.${extension}`;
     await env.RELEASES_FILES.put(name, file.stream(), {
       httpMetadata: { contentType: TYPES[extension] },
