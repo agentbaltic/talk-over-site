@@ -31,7 +31,7 @@
 <p><a id="latest-link" style="display:inline-block;padding:14px 22px;border-radius:12px;background:#1a1a1a;color:#fff;font-weight:700;text-decoration:none;" href="https://resources.agentbaltic.com/b/uxIl4">Download</a></p>
 <p style="margin:0 0 14px;color:#4a5568;line-height:1.7;font-size:17px;">No licence yet? <a href="https://resources.agentbaltic.com/b/uxIl4">Buy TalkOver</a>, or <a href="https://resources.agentbaltic.com/b/UlS6B">try it free for 30 days</a>. A downloaded copy of the full app will not run until it has been activated with a licence key.</p>
 <h2 style="margin:28px 0 10px;font-size:22px;">Let the app tell you</h2>
-<p style="margin:0 0 14px;color:#4a5568;line-height:1.7;font-size:17px;">TalkOver can check for new versions itself, if you switch that on: when it opens and about once a day, it reads one small file on this site that names the newest version. Nothing about you or your scripts is sent. It is off until you turn it on, under How To → Privacy inside the app.</p>
+<p style="margin:0 0 14px;color:#4a5568;line-height:1.7;font-size:17px;">TalkOver can check for new versions itself, if you switch that on: once each time it opens, it reads one small file on this site that names the newest version, and never again while it stays open. Nothing about you or your scripts is sent. It is off until you turn it on, under How To → Privacy inside the app.</p>
 <script>
 fetch('/api/latest').then(r => r.ok ? r.json() : null).then(latest => {
   if (!latest) { document.getElementById('latest-version').textContent = 'unavailable right now'; return; }
