@@ -1,8 +1,10 @@
 // The publish tool's back end. A password (PUBLISH_TOKEN), a version, and
-// either a disk image (stored in the RELEASES_FILES bucket) or a download
-// address. The result is written to the RELEASES store as "latest", which
-// /api/latest serves to the app and the download page.
+// either a build (a .dmg, or a .zip holding the disk image and the update
+// notes, stored in the RELEASES_FILES bucket) or a download address. The
+// result is written to the RELEASES store as "latest", which /api/latest
+// serves to the app and the download page.
 const VERSION = /^[0-9]+(\.[0-9]+)*$/;
+const TYPES = { dmg: 'application/x-apple-diskimage', zip: 'application/zip' };
 
 export async function onRequestPost({ request, env }) {
   if (!env.PUBLISH_TOKEN) return Response.json({ error: 'Publishing is not configured: set PUBLISH_TOKEN.' }, { status: 503 });
@@ -17,14 +19,15 @@ export async function onRequestPost({ request, env }) {
   let url = String(form.get('url') || '').trim();
   if (file && typeof file === 'object' && file.size > 0) {
     if (!env.RELEASES_FILES) return Response.json({ error: 'Uploads are not configured: bind the RELEASES_FILES bucket, or give a download address.' }, { status: 503 });
-    const name = `TalkOver-${version}.dmg`;
+    const extension = /\.zip$/i.test(String(file.name || '')) ? 'zip' : 'dmg';
+    const name = `TalkOver-${version}.${extension}`;
     await env.RELEASES_FILES.put(name, file.stream(), {
-      httpMetadata: { contentType: 'application/x-apple-diskimage' },
+      httpMetadata: { contentType: TYPES[extension] },
       customMetadata: { version, published: new Date().toISOString() }
     });
     url = new URL(`/api/download/${name}`, request.url).toString();
   }
-  if (!/^https:\/\//.test(url)) return Response.json({ error: 'Give a disk image to upload, or an https download address.' }, { status: 400 });
+  if (!/^https:\/\//.test(url)) return Response.json({ error: 'Give a disk image or zip to upload, or an https download address.' }, { status: 400 });
   const latest = { version, url, notes, published: new Date().toISOString() };
   await env.RELEASES.put('latest', JSON.stringify(latest));
   return Response.json(latest);

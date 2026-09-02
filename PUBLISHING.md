@@ -1,14 +1,21 @@
 # Publishing a new version
 
 Open **https://talkoverapp.com/publish**, enter the publish password, the
-version (for example `1.0.5.1`), what changed, and pick the disk image. Press
+version (for example `1.0.5.1`), what changed, and pick the build: the disk
+image, or a **.zip** holding the disk image and the update notes. Press
 Publish. Within a minute:
 
 - `https://talkoverapp.com/api/latest` answers with the new version and its
   download address, which the app reads (only when its reader has turned on
   automatic checks) and shows as "TalkOver 1.0.5.1 is available".
 - `https://talkoverapp.com/download` shows the same, for anyone checking by hand.
-- The disk image is served from `https://talkoverapp.com/api/download/TalkOver-1.0.5.1.dmg`.
+- The build is served from `https://talkoverapp.com/api/download/TalkOver-1.0.5.1.dmg`
+  (or `.zip`, matching what was uploaded).
+
+The app (from 1.0.4.26) downloads that file itself: a reader who presses
+Download New Version is asked where to save it, and the file lands there. Only
+a `.dmg` or `.zip` address is downloaded; any other address (a store page, the
+download page) is opened in their browser instead.
 
 A downloaded copy of the full app cannot run until it is activated with a
 licence key, so the download can be public.

@@ -25,12 +25,12 @@
 </header><main style="max-width:860px;margin:0 auto;padding:56px clamp(20px,6vw,64px);">
 <p style="margin:0 0 8px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7a6f5a;">Publish</p>
 <h1 style="margin:0 0 12px;font-size:clamp(32px,5vw,48px);line-height:1.1;letter-spacing:-.02em;">Publish a new version.</h1>
-<p style="margin:0 0 14px;color:#4a5568;line-height:1.7;font-size:17px;">Pick the disk image, type the version, press Publish. The app's update check and the download page read this within a minute.</p>
+<p style="margin:0 0 14px;color:#4a5568;line-height:1.7;font-size:17px;">Pick the disk image or zip, type the version, press Publish. The app's update check and the download page read this within a minute.</p>
 <form id="publish">
 <p><label style="margin:0 0 14px;color:#4a5568;line-height:1.7;font-size:17px;">Publish password<br><input id="token" name="token" type="password" autocomplete="current-password" required style="width:100%;max-width:520px;padding:12px 14px;border:1px solid #cfc9bd;border-radius:10px;font:inherit;"></label></p>
 <p><label style="margin:0 0 14px;color:#4a5568;line-height:1.7;font-size:17px;">Version<br><input id="version" name="version" type="text" placeholder="1.0.5.1" pattern="[0-9]+(\.[0-9]+)*" required style="width:100%;max-width:520px;padding:12px 14px;border:1px solid #cfc9bd;border-radius:10px;font:inherit;"></label></p>
 <p><label style="margin:0 0 14px;color:#4a5568;line-height:1.7;font-size:17px;">What changed (optional)<br><input id="notes" name="notes" type="text" maxlength="200" style="width:100%;max-width:520px;padding:12px 14px;border:1px solid #cfc9bd;border-radius:10px;font:inherit;"></label></p>
-<p><label style="margin:0 0 14px;color:#4a5568;line-height:1.7;font-size:17px;">Disk image<br><input id="file" name="file" type="file" accept=".dmg"></label><br><span style="color:#7a6f5a;">Uploads to this site. Or leave it empty and give a download address below.</span></p>
+<p><label style="margin:0 0 14px;color:#4a5568;line-height:1.7;font-size:17px;">Disk image or zip<br><input id="file" name="file" type="file" accept=".dmg,.zip"></label><br><span style="color:#7a6f5a;">A .dmg, or a .zip holding the disk image and the update notes. Uploads to this site. Or leave it empty and give a download address below.</span></p>
 <p><label style="margin:0 0 14px;color:#4a5568;line-height:1.7;font-size:17px;">Download address<br><input id="url" name="url" type="url" placeholder="https://…" style="width:100%;max-width:520px;padding:12px 14px;border:1px solid #cfc9bd;border-radius:10px;font:inherit;"></label></p>
 <p><button type="submit" style="display:inline-block;border:0;cursor:pointer;padding:14px 22px;border-radius:12px;background:#1a1a1a;color:#fff;font-weight:700;text-decoration:none;">Publish</button></p>
 <p id="result" role="status" aria-live="polite" style="margin:0 0 14px;color:#4a5568;line-height:1.7;font-size:17px;"></p>
