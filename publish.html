@@ -26,6 +26,7 @@
 <p style="margin:0 0 8px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7a6f5a;">Publish</p>
 <h1 style="margin:0 0 12px;font-size:clamp(32px,5vw,48px);line-height:1.1;letter-spacing:-.02em;">Publish a new version.</h1>
 <p style="margin:0 0 14px;color:#4a5568;line-height:1.7;font-size:17px;">Pick the disk image or zip, type the version, press Publish. The app's update check and the download page read this within a minute.</p>
+<p id="current" style="margin:0 0 18px;padding:12px 14px;border:1px solid #cfc9bd;border-radius:10px;color:#4a5568;line-height:1.6;">Published now: <strong id="current-version">checking…</strong> <span id="current-url"></span></p>
 <form id="publish">
 <p><label style="margin:0 0 14px;color:#4a5568;line-height:1.7;font-size:17px;">Publish password<br><input id="token" name="token" type="password" autocomplete="current-password" required style="width:100%;max-width:520px;padding:12px 14px;border:1px solid #cfc9bd;border-radius:10px;font:inherit;"></label></p>
 <p><label style="margin:0 0 14px;color:#4a5568;line-height:1.7;font-size:17px;">Version<br><input id="version" name="version" type="text" placeholder="1.0.5.1" pattern="[0-9]+(\.[0-9]+)*" required style="width:100%;max-width:520px;padding:12px 14px;border:1px solid #cfc9bd;border-radius:10px;font:inherit;"></label></p>
@@ -37,8 +38,21 @@
 </form>
 <script>
 const form = document.getElementById('publish'), result = document.getElementById('result');
+fetch('/api/latest').then(r => r.ok ? r.json() : null).then(latest => {
+  document.getElementById('current-version').textContent = latest ? latest.version : 'nothing';
+  if (latest && latest.url) document.getElementById('current-url').textContent = `→ ${latest.url}`;
+}).catch(() => { document.getElementById('current-version').textContent = 'unknown'; });
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
+  // The app trusts the typed version over the file's name. A build is named
+  // TalkOver-<version>…; if the two disagree, say so before anything goes live.
+  const picked = document.getElementById('file').files[0];
+  const typed = document.getElementById('version').value.trim();
+  const named = picked && /TalkOver-([0-9]+(?:\.[0-9]+)*)/.exec(picked.name);
+  if (named && named[1] !== typed && !window.confirm(`The file is named ${named[1]} but you typed ${typed}. Every copy of TalkOver will be offered "${typed}". Publish anyway?`)) {
+    result.textContent = 'Not published.';
+    return;
+  }
   result.textContent = 'Publishing…';
   try {
     const response = await fetch('/api/publish', { method: 'POST', body: new FormData(form) });
