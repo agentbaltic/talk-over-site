@@ -23,7 +23,6 @@ async function looksLikeABuild(file, extension) {
 // the property list its koly trailer points at; a zip is searched for the
 // disk image's entry name in its central directory.
 const STAMP = /TalkOverVersion ([0-9]+(?:\.[0-9]+)*)/;
-const ZIP_ENTRY = /TalkOver-([0-9]+(?:\.[0-9]+)+)[^\/\\"]*\.dmg/;
 
 async function versionInside(file, extension) {
   if (extension === 'dmg') {
@@ -35,9 +34,9 @@ async function versionInside(file, extension) {
     const found = STAMP.exec(xml);
     return found ? found[1] : null;
   }
-  const tail = new TextDecoder('latin1').decode(await file.slice(Math.max(0, file.size - 1024 * 1024), file.size).arrayBuffer());
-  const found = ZIP_ENTRY.exec(tail);
-  return found ? found[1] : null;
+  // A zip carries no stamp that can be trusted: an entry's name is only a
+  // name. It is published as unstamped, with the version typed.
+  return null;
 }
 
 export async function onRequestPost({ request, env }) {
@@ -71,7 +70,7 @@ export async function onRequestPost({ request, env }) {
       version = inside;
       source = 'file';
     } else if (!typed) {
-      return Response.json({ error: 'This file carries no version stamp (built before 1.0.4.36). Type its version, exactly.' }, { status: 400 });
+      return Response.json({ error: extension === 'zip' ? 'A zip carries no version stamp: type its version, exactly.' : 'This file carries no version stamp (built before 1.0.4.36). Type its version, exactly.' }, { status: 400 });
     }
     const name = `TalkOver-${version}.${extension}`;
     await env.RELEASES_FILES.put(name, file.stream(), {
